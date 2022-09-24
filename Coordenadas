@@ -1,0 +1,11 @@
+#IMPORTACIONES DE LAS LIBRERIAS 
+import random as rm
+import rasterio as rs
+def segurity(tif):
+    imagen = rs.open(tif)
+    ImagenT=imagen.transform*(0,0)
+    print("Esquinas normales: ",ImagenT)
+    EsquinasTransformada=imagen.transform *(rm.randint(100000,10000000),rm.randint(10000,10000000))
+    print("Esquinas erroneas: ",EsquinasTransformada)
+    return(EsquinasTransformada)
+segurity('https://telemetrifull.blob.core.windows.net/pruebas/type2/tif/recorte_mision79_linea2_.tif')
